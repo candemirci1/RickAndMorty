@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:padding="16dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ProgressBar
+        android:id="@+id/loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/iv_character_image"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:scaleType="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@color/black"/>
+
+    <TextView
+        android:id="@+id/tv_characterinfo_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/iv_character_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        tools:text="Rick"/>
+
+    <TextView
+        android:id="@+id/tv_character_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:text="Status:"/>
+
+    <TextView
+        android:id="@+id/tv_character_status_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/tv_character_status"
+        app:layout_constraintStart_toEndOf="@+id/tv_character_status"
+        android:layout_marginStart="8dp"
+        tools:text="3"/>
+
+
+    <TextView
+        android:id="@+id/tv_character_species"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_character_status_value"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:text="species:"/>
+
+
+    <TextView
+        android:id="@+id/tv_character_species_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/tv_character_species"
+        app:layout_constraintStart_toEndOf="@+id/tv_character_species"
+        android:layout_marginStart="8dp"
+        tools:text="50"/>
+
+    <TextView
+        android:id="@+id/tv_character_created"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_character_species_value"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:text="created:" />
+
+    <TextView
+        android:id="@+id/tv_character_created_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@+id/tv_character_created"
+        app:layout_constraintStart_toEndOf="@+id/tv_character_created"
+        android:layout_marginStart="8dp"
+        tools:text="Fire \nWater" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

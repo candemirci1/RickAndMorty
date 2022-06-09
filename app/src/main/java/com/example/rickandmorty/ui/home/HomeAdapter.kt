@@ -16,7 +16,7 @@ import com.example.rickandmorty.databinding.ItemCharacterBinding
 class HomeAdapter(
     private val characters: List<Character>,
     private val itemWidth: Int,
-    private val onClick: (String) -> Unit
+    private val onClick: (Int) -> Unit
 ): RecyclerView.Adapter<HomeAdapter.CharacterViewHolder>() {
 
     class CharacterViewHolder (val binding: ItemCharacterBinding) : RecyclerView.ViewHolder(binding.root)
@@ -36,6 +36,11 @@ class HomeAdapter(
             Glide.with(root.context)
                 .load(currentCharacter.image)
                 .into(ivCharacter)
+
+            root.setOnClickListener {
+                onClick.invoke(currentCharacter.id)
+            }
+
         }
     }
 

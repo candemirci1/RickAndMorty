@@ -1,5 +1,6 @@
 package com.example.rickandmorty.data.repository
 
+import com.example.rickandmorty.data.model.Character
 import com.example.rickandmorty.data.model.CharactersDTO
 import com.example.rickandmorty.data.service.RickAndMortyService
 import com.example.rickandmorty.data.utils.Response
@@ -18,5 +19,18 @@ class CharacterRepositoryImpl(private val service: RickAndMortyService) : Charac
         } catch (e: IOException) {
             Response.Error("check your internet connection")
         }
+    }
+
+    override suspend fun getCharactersInfo(id: Int): Response<Character> {
+
+        return try {
+            val characters = service.fetchCharacterInfo(id)
+            Response.Success(characters)
+        } catch (e: HttpException) {
+            Response.Error(e.message.orEmpty(), e.code())
+        } catch (e: IOException) {
+            Response.Error("check your internet connection")
+        }
+
     }
 }

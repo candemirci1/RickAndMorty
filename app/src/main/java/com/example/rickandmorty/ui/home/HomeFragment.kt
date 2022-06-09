@@ -9,6 +9,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.rickandmorty.databinding.FragmentHomeBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,11 +45,14 @@ class HomeFragment : Fragment() {
                         it.data?.let { charactersDTO ->
                             val width = getScreenWidth()
                             homeAdapter = HomeAdapter(charactersDTO.characters,width/ SPAN_COUNT) {
-
+                                val action =
+                                    HomeFragmentDirections.actionHomeFragmentToCharacterInfoFragment(it)
+                                findNavController().navigate(action)
                             }
 
                             binding?.rvHome?.layoutManager = GridLayoutManager(requireContext(), SPAN_COUNT)
                             binding?.rvHome?.adapter = homeAdapter
+
                         }
 
 
