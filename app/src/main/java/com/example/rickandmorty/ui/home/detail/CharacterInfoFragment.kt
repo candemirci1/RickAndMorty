@@ -1,22 +1,25 @@
-package com.example.rickandmorty.ui.detail
+package com.example.rickandmorty.ui.home.detail
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.example.rickandmorty.databinding.FragmentCharacterInfoBinding
+import com.example.rickandmorty.ui.home.HomeListViewState
+import com.example.rickandmorty.util.DateHelper
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 @AndroidEntryPoint
@@ -55,13 +58,10 @@ class CharacterInfoFragment : Fragment() {
                                 tvCharacterinfoName.text = it.name
                                 tvCharacterSpeciesValue.text = it.species
                                 tvCharacterStatusValue.text = it.status
-                                val pattern = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                                val simpleDateFormat = SimpleDateFormat(pattern,Locale.getDefault())
-                                val date = simpleDateFormat.parse(it.created)
-                                val format = "EEE, d MMM yyyy"
-                                val dateFormatter = SimpleDateFormat(format,Locale.getDefault())
-                                val prettyDate = dateFormatter.format(date!!)
-                                tvCharacterCreatedValue.text = prettyDate
+
+                                val dateHelper = DateHelper()
+                                tvCharacterCreatedValue.text = dateHelper.simpleCreated(it.created)
+
 
                             }
 
@@ -89,5 +89,7 @@ class CharacterInfoFragment : Fragment() {
         binding = null
         super.onDestroyView()
     }
+
+
 
 }

@@ -6,4 +6,6 @@ object Constants {
 
     const val CHARACTER_ENDPOINT = "character"
     const val CHARACTER_INFO_ENDPOINT = "character/{id}"
+    const val LOCATION_ENDPOINT = "location"
+    const val EPİSODE_ENDPOINT = "episode"
 }

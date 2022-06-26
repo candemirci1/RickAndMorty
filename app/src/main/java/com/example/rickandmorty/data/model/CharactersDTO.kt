@@ -10,12 +10,7 @@ data class CharactersDTO(
 )
 
 
-data class Info(
-    val count: Int,
-    val pages: Int,
-    val next: String?,
-    val prev: String?
-)
+
 
 data class Character(
     val id: Int,
@@ -27,4 +22,5 @@ data class Character(
     val image: String,
     val created: String
 )
+
 

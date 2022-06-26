@@ -8,4 +8,5 @@ interface CharactersRepository {
 
     suspend fun getCharacters(): Response<CharactersDTO>
     suspend fun getCharactersInfo(id:Int): Response<Character>
+
 }

@@ -1,7 +1,6 @@
 package com.example.rickandmorty.di
 
-import com.example.rickandmorty.data.repository.CharacterRepositoryImpl
-import com.example.rickandmorty.data.repository.CharactersRepository
+import com.example.rickandmorty.data.repository.*
 import com.example.rickandmorty.data.service.RickAndMortyService
 import dagger.Module
 import dagger.Provides
@@ -17,5 +16,17 @@ object RepositoryModule {
     @Singleton
     fun provideCharacterRepository(service: RickAndMortyService):CharactersRepository{
         return CharacterRepositoryImpl(service)
+    }
+
+    @Provides
+    @Singleton
+    fun provideLocationRepository(service: RickAndMortyService):LocationRepository{
+        return LocationRepositoryImpl(service)
+    }
+
+    @Provides
+    @Singleton
+    fun provideEpisodeRepository(service: RickAndMortyService):EpisodeRepository{
+        return EpisodeRepositoryImpl(service)
     }
 }

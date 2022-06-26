@@ -14,10 +14,18 @@
     </fragment>
     <fragment
         android:id="@+id/characterInfoFragment"
-        android:name="com.example.rickandmorty.ui.detail.CharacterInfoFragment"
+        android:name="com.example.rickandmorty.ui.home.detail.CharacterInfoFragment"
         android:label="CharacterInfoFragment" >
         <argument
             android:name="id"
             app:argType="integer" />
     </fragment>
+    <fragment
+        android:id="@+id/episodeFragment"
+        android:name="com.example.rickandmorty.ui.episode.EpisodeFragment"
+        android:label="EpisodeFragment" />
+    <fragment
+        android:id="@+id/locationFragment"
+        android:name="com.example.rickandmorty.ui.location.LocationFragment"
+        android:label="LocationFragment" />
 </navigation>
